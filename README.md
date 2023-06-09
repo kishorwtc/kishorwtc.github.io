@@ -4,6 +4,5 @@ Leading wholesaler in high-quality industrial chemicals for a variety of industr
 
 ---
 
-<img width="30rem" src="https://raw.githubusercontent.com/kishorwtc/kishorwtc.github.io/main/icon.png"/>
-
+<a target="_blank" href="https://worldtradecorporation.in/"> <img width="50rem" src="https://raw.githubusercontent.com/kishorwtc/kishorwtc.github.io/main/icon.png"/></a><br>
 ### [Visit Our Website](https://worldtradecorporation.in)
