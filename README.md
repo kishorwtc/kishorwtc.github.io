@@ -4,5 +4,5 @@ Leading wholesaler in high-quality industrial chemicals for a variety of industr
 
 ---
 
-<a target="_blank" href="https://worldtradecorporation.in/"> <img src="https://i.imgur.com/PRDpN1D.png"/></a><br>
+<a target="_blank" href="https://worldtradecorporation.in/"> <img src="wtc.png"/></a><br>
 ### [Visit Our Website](https://worldtradecorporation.in)
