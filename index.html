@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Alpine.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <!-- Include the GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <!-- Include the ScrollTrigger plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+    <title>World Trade Corporation</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,300;1,400;1,500&display=swap');
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR START -->
+    <div class="w-full mx-auto bg-white border-b 2xl:max-w-7xl">
+        <div x-data="{ open: false }"
+            class="relative flex flex-col w-full p-5 mx-auto bg-white md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+            <div id="header" class="flex flex-row items-center justify-between lg:justify-start">
+                <a id="logoLink"
+                    class="flex items-center text-lg tracking-tight focus:outline-none focus:ring lg:text-2xl" href="/">
+                    <span class="lg:text-lg focus:ring-0">
+                        <img id="logo" class="h-8 lg:h-10" src="icon.png" alt="Logo">
+                    </span>
+                </a>
+                <button id="menuButton" @click="open = !open"
+                    class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-black focus:outline-none focus:text-black md:hidden">
+                    <svg id="menuIcon" class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path id="menuLines" :class="{'hidden': open, 'inline-flex': !open }" class="hidden"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                        <path id="closeLines" :class="{'hidden': !open, 'inline-flex': open }" class="inline-flex"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <nav :class="{'flex': open, 'hidden': !open}"
+                class="flex-col items-end flex-grow md:pb-0 md:flex md:justify-end md:flex-row flex">
+                <div class="hidden mx-10 md:flex lg:ml-auto">
+                    <div class="relative">
+                    </div>
+                </div>
+                <div id="menu" class="lg:inline-flex md:inline-flex items-center gap-2 list-none">
+                    <a id="aboutLink" href="#products"
+                        class="m-auto block px-4 py-1 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
+                        About
+                    </a>
+                    <a id="contactLink" href="#contact"
+                        class="m-auto block px-4 py-1 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
+                        Contact
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- NAVBAR END -->
+
+    <!-- HERO SECTION START -->
+    <section class="h-screen">
+        <div class="items-center px-8 py-12 mx-auto max-w-7xl lg:px-16 md:px-12 lg:py-24">
+            <div class="justify-center w-full text-center lg:p-10 max-auto">
+                <div id="content" class="justify-center w-full mx-auto">
+                    <p id="title" class="mt-8 text-5xl font-semibold tracking-tighter text-black">
+                        World Trade Corporation
+                    </p>
+                    <p id="description" class="max-w-xl mx-auto mt-4 text-lg tracking-tight text-gray-600">
+                        Leading wholesaler in high-quality industrial chemicals for a variety of industries. We
+                        offer a
+                        satisfaction guarantee on all of our products, and we are always willing to help our
+                        customers
+                        find the right chemicals for their needs.
+                    </p>
+                </div>
+
+                <div id="cta"
+                    class="flex flex-col items-center justify-center max-w-xl gap-3 mx-auto mt-10 lg:flex-row">
+                    <a id="productsLink" href="#products"
+                        class="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none lg:w-auto focus-visible:outline-black text-sm focus-visible:ring-black">
+                        Our Products
+                    </a>
+                    <a id="contactLinkcta" href="contacts"
+                        class="inline-flex items-center justify-center text-sm font-semibold text-black duration-200 hover:text-blue-500 focus:outline-none focus-visible:outline-gray-600">
+                        Get in touch
+                        <span class="mx-1" aria-hidden="true"> → </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- HERO SECTION END -->
+
+    <!-- PRODUCT SECTION START -->
+    <section class="items-center w-full bg-gray-700" id="products">
+        <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-20 max-w-7xl">
+            <div class="m-auto text-center pt-2">
+                <h2 class="text-4xl font-semibold text-white">Our Products</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                        src="https://thumbs2.imgbox.com/d7/24/SNxMaEBG_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Sodium Dichromate</p>
+                    <p class="mt-3 text-base text-gray-300">Wholesale industrial chemical for various applications.
+                    </p>
+                </figure>
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                    src="https://thumbs2.imgbox.com/20/cc/GZnD2Tzf_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Sodium Sulphide</p>
+                    <p class="mt-3 text-base text-gray-300">High-quality wholesale industrial chemical for diverse
+                        needs.</p>
+                </figure>
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                    src="https://thumbs2.imgbox.com/c4/18/tnnZ1r66_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Chromic Acid</p>
+                    <p class="mt-3 text-base text-gray-300">Versatile wholesale industrial chemical for multiple
+                        industries.</p>
+                </figure>
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                    src="https://thumbs2.imgbox.com/ad/93/Wye3X7tx_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Sodium Sulphate</p>
+                    <p class="mt-3 text-base text-gray-300">Wholesale industrial chemical suitable for various
+                        applications.</p>
+                </figure>
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                    src="https://thumbs2.imgbox.com/f9/71/02O8isZ8_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Acetic Acid</p>
+                    <p class="mt-3 text-base text-gray-300">Wholesale industrial chemical suitable for various
+                        applications.</p>
+                </figure>
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                    src="https://thumbs2.imgbox.com/8d/c2/KUHlghe7_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Basic Chrome Sulphate</p>
+                    <p class="mt-3 text-base text-gray-300">Wholesale industrial chemical suitable for various
+                        applications.</p>
+                </figure>
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                    src="https://thumbs2.imgbox.com/38/0a/COvjrbkg_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Saccharine</p>
+                    <p class="mt-3 text-base text-gray-300">Wholesale industrial chemical suitable for various
+                        applications.</p>
+                </figure>
+                <figure class="image-container">
+                    <img class="w-full mt-12 bg-white"
+                    src="https://thumbs2.imgbox.com/d2/8e/4PpYq2jv_t.png" alt="" width="1310" height="873">
+                    <p class="mt-5 text-lg font-medium leading-6 text-white">Many More</p>
+                    <p class="mt-3 text-base text-gray-300">We can also arrange chemicals as per your requirement.
+                    </p>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <!-- PRODUCT SECTION END -->
+
+    <!-- CONTACT SECTION STARTS -->
+    <section class="items-center w-full" id="contact">
+        <div class="relative justify-center max-h-full overflow-hidden lg:px-0">
+            <div
+                class="relative z-10 flex flex-col flex-1 px-4 py-10 bg-white shadow-2xl lg:py-12 md:flex-none md:px-28 sm:justify-center">
+                <div class="w-full max-w-md mx-auto md:max-w-sm md:px-0 md:w-96 sm:px-4">
+                    <div class="flex flex-col">
+                        <div>
+                            <h2 class="text-3xl text-black font-semibold">Post your requirement, and we'll reach out!</h2>
+                        </div>
+                    </div>
+                    <form>
+                        <input autocomplete="false" name="hidden" style="display: none">
+                        <input name="_redirect" type="hidden" value="#">
+                        <div class="mt-4 space-y-6">
+                            <hr>
+                            <div>
+                                <label class="block mb-3 text-sm font-medium text-gray-600" name="name" required>
+                                    Type in your name here
+                                </label>
+                                <input
+                                    class="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                                    placeholder="Your Name" required>
+                            </div>
+                            <div class="col-span-full">
+                                <label class="block mb-3 text-sm font-medium text-gray-600" name="contact">
+                                    Contact Number
+                                </label>
+                                <input
+                                    class="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                                    placeholder="+91-9876543210" type="tel" autocomplete="off">
+                            </div>
+                            <div class="col-span-full">
+                                <label class="block mb-3 text-sm font-medium text-gray-600" name="email">
+                                    Email ID
+                                </label>
+                                <input
+                                    class="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                                    placeholder="contact@worldtradecorporation.in" autocomplete="off" type="email">
+                            </div>
+                            <div>
+                                <div>
+                                    <label class="block mb-3 text-sm font-medium text-gray-600" nam e="requirement">
+                                        Requirement
+                                    </label>
+                                    <div class="mt-1">
+                                        <textarea
+                                            class="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                                            placeholder="Write down the Chemical Name you want along with the quantity you need."
+                                            rows="4" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-full">
+                                <button
+                                    class="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+                                    type="submit">
+                                    SEND
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT SECTION ENDS -->
+
+   <!-- FOOTER SECTION STARTS -->
+<footer class="w-full bg-black" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="px-2 py-3 mx-auto max-w-7xl sm:px-6 lg:px-16 text-center">
+        <div class="flex flex-col items-baseline space-y-6">
+            <div class="mx-auto">
+                <span class="footer-text mx-auto my-2 text-sm text-white font-medium inline-flex items-streth">
+                    <!-- <img class="mx-2" src="icon.png" alt="WTC" width="25rem"> -->
+                    World Trade Corporation - Serving Since 1994
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- FOOTER SECTION ENDS -->
+
+</body>
+
+<script src="main.js"></script>
+
+</html>
